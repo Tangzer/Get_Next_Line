@@ -18,3 +18,8 @@ int ft_strlen(char *str)
 		i++;
 	return (i);
 }
+
+void ft_stradd(int fd, char *buff)
+{
+
+}

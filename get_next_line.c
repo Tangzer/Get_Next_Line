@@ -1,49 +1,61 @@
 #include "get_next_line.h"
 
-static char *next_line(char read_line, int i)
+static char	*update_static_buff(char *buff, int i)
 {
 	int j;
+	int new_size;
+	char *updated_buff;
 
-	i++;
-	j = 0;
-	while (read_line[i] != '\n')
-		j++;
-	read_line = malloc(sizeof(char) * j + 1);
-	if (!read_line)
-		return (0);
-	return (read_line);
+	j = ft_strlen(buff);
+	new_size = j - i;
+	updated_buff = malloc(sizeof(char) * new_size);
+	// + 1 le malloc??
+	while (new_size >= i)
+		updated_buff[new_size--] = buff[j--];
+	free(buff);
+	return (updated_buff);
 }
 
-static char *ft_get_next_line(int fd, char *line, char *read_line)
+static void ft_read(int fd, char *buff, int size)
 {
 	int i;
 
 	i = 0;
-	while (read_line[i] != '\n')
-		i++;
-	line = malloc(sizeof(char) * i + 1);
-	if (!line)
-		return (0);
-	i = 0;
-	while (read_line[i] != '\n')
-	{
-		line[i] = read_line[i];
-		i++;
-	}
-	read_line = next_line(read_line, i);
-	return (line);
+	while (fd[i] != '\n')
+		ft_stradd(fd[i], buff);
 }
 
-char	*get_next_line(int fd)
+static int find_line_length(char *buff)
 {
-	char			*line;
-	static char		*read_line;
+	int i;
 
-	line = NULL;
-	read_line = read(fd, read_line, BUFFER_SIZE);
-	if (!read_line)
-		return (0);
-	if (fd < 0 || fd > 1024 || !fd || BUFFER_SIZE <= 0)
-		return (ft_error(0));
-	return (ft_get_next_line(fd, line, read_line));
+	i = 0;
+	while (buff[i] != '\n')
+		i++;
+	return (i);
+}
+
+static void *fct_line(int i, char *buff)
+{
+	int j;
+	char *line;
+
+	line = malloc(sizeof(char) * i + 1);
+	j = 0;
+	while (j <= i)
+		line[j] = buff[j];
+	update_static_buff(buff, i);
+}
+
+char *get_next_line(int fd)
+{
+	int i;
+	static char *already_read_line;
+	char *line;
+
+	ft_read(fd, already_read_line, BUFFER_SIZE);
+	i = find_line_length(already_read_line);
+	line = fct_line(i, already_read_line);
+	already_read_line = update_static_buff(already_read_line);
+	return (line);
 }
