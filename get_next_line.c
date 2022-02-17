@@ -1,61 +1,103 @@
 #include "get_next_line.h"
+#include <stdio.h>
 
-static char	*update_static_buff(char *buff, int i)
+void update_statik(char *statik, int k)
 {
-	int j;
-	int new_size;
-	char *updated_buff;
+	int 	i;
+	int 	n;
+	char	*tmp;
 
-	j = ft_strlen(buff);
-	new_size = j - i;
-	updated_buff = malloc(sizeof(char) * new_size);
-	// + 1 le malloc??
-	while (new_size >= i)
-		updated_buff[new_size--] = buff[j--];
-	free(buff);
-	return (updated_buff);
+	n = ft_strlen(statik);
+	tmp = malloc(sizeof(char) * n);
+	if (!tmp)
+		free(tmp);
+	ft_fill_line(statik, tmp, n);
+	i = 0;
+	while (k < n)
+		statik[i++] = tmp[k++];
+	free(tmp);
 }
 
-static void ft_read(int fd, char *buff, int size)
+char *send_line(char *statik, int k)
+{
+	char	*line;
+	int 	i;
+
+	i = 0;
+	line = malloc(sizeof(char) * k + 1);
+	if (!line)
+		return (ft_error(line));
+	ft_fill_line(statik, line, k);
+	return (line);
+}
+
+int	ft_find_line(char *str)
 {
 	int i;
 
 	i = 0;
-	while (fd[i] != '\n')
-		ft_stradd(fd[i], buff);
-}
-
-static int find_line_length(char *buff)
-{
-	int i;
-
-	i = 0;
-	while (buff[i] != '\n')
+	while (str[i])
+	{
+		if (str[i] == '\n')
+		{
+			printf(" i = %d\n", i);
+			return (i);
+		}
 		i++;
-	return (i);
+	}
+	printf(" i = %d\n", i);
+	return (0);
 }
 
-static void *fct_line(int i, char *buff)
+int gnl(int fd, char *statik, char *buffer)
 {
-	int j;
-	char *line;
+	int r;
+	int k;
 
-	line = malloc(sizeof(char) * i + 1);
-	j = 0;
-	while (j <= i)
-		line[j] = buff[j];
-	update_static_buff(buff, i);
+	k = 0;
+	r = read(fd, buffer, BUFFER_SIZE);
+	while (r > 0)
+	{
+		if (ft_find_line(ft_strjoin(statik, buffer)))
+		{
+			k = ft_find_line(ft_strjoin(statik, buffer));
+			printf(" k = %d\n", k);
+			return (k);
+		}
+		r = read(fd, buffer, BUFFER_SIZE);
+	}
+	printf(" k = %d\n", k);
+	return (k);
 }
 
 char *get_next_line(int fd)
 {
-	int i;
-	static char *already_read_line;
-	char *line;
+	static char statik[10000];
+	char 		buffer[BUFFER_SIZE + 1];
+	char 		*line;
+	int			k;
 
-	ft_read(fd, already_read_line, BUFFER_SIZE);
-	i = find_line_length(already_read_line);
-	line = fct_line(i, already_read_line);
-	already_read_line = update_static_buff(already_read_line);
+	if (fd < 0 || fd > 1024 || !fd || BUFFER_SIZE <= 0)
+		return (ft_error(0));
+	k = gnl(fd, statik, buffer);
+	printf(" last k = %d\n", k);
+	//Fct qui extrait la ligne de la statik
+	line = send_line(statik, k);
+	//Fct qui trimn la statik
+	update_statik(statik, k);
 	return (line);
+}
+////////////////////////////////////////////////////////////////////////////
+int main()
+{
+	char *str;
+
+	int fd = open("file", O_RDONLY);
+	str = get_next_line(fd);
+	printf("%s\n", str);
+
+	str = get_next_line(fd);
+	printf("%s", str);
+
+	return (0);
 }
