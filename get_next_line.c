@@ -64,34 +64,37 @@ char	*gnl(int fd, char *saved, char *buffer, char *buff)
 	return (saved);
 }
 
-//char 	*gnl_big_buff_size(char *saved, char *buffer, char *buff)
-//{
-//	int i;
-//
-//	i = check_for_line_break(buff);
-//	buffer = update_buffer(buffer, buff, i);
-//	buff = trim_buffer(buff, i);
-//	saved = buffer;
-//	return (saved);
-//}
+char 	*gnl_big_buff_size(int fd, char *saved, char *buffer, char *buff)
+{
+	int i;
+
+	read(fd, buff, BUFFER_SIZE);
+	i = check_for_line_break(buff);
+	printf("%d\n", i);
+	buffer = update_buffer(buffer, buff, i);
+	buff = trim_buffer(buff, i);
+	saved = buffer;
+	return (saved);
+}
 
 char	*get_next_line(int fd)
 {
 	char 			*saved;
 	char			buff[BUFFER_SIZE + 1];
 	static char 	*buffer;
-	char 			*line;
 
 	if (fd < 0 || fd > 1024 || !fd || BUFFER_SIZE <= 0)
 		return (ft_error(0));
 	saved = NULL;
-//	if (BUFFER_SIZE > read(fd, buff, BUFFER_SIZE))
-//		line = gnl_big_buff_size(saved, buffer, buff);
-//	else
-		line = gnl(fd, saved, buffer, buff);
-	return (line);
+	if (BUFFER_SIZE > read(fd, buff, BUFFER_SIZE))
+		return (gnl_big_buff_size(fd, saved, buffer, buff));
+	else
+		return (gnl(fd, saved, buffer, buff));
 }
 
+// Ou bien je garde les 2 gnl et qd BS est petit (certaines valeurs --> seg fault)
+// Ou bien je garde que 1 gnl et ca bug de maniere random
+// what about freeing some shit??
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int main()
@@ -101,6 +104,8 @@ int main()
 	int fd = open("file", O_RDONLY);
 	str = get_next_line(fd);
 	printf("%s\n", str);
+
+	free(str);
 
 //	str = get_next_line(fd);
 //	printf("%s\n", str);
