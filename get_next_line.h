@@ -1,7 +1,7 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFFER_SIZE 100
+# define BUFFER_SIZE 4
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -10,10 +10,13 @@
 char	*ft_error(char *tmp);
 int 	ft_strlen(char *str);
 char	*get_next_line(int fd);
-int		gnl(int fd, char *statik, char *buffer);
-void	ft_fill_line(char *src, char *dst, int n);
+char	*gnl(int fd, char *saved, char *buffer, char *buff);
+char 	*gnl_big_buff_size(char *saved, char *buffer, char *buff);
+char	*ft_fill_line(char *src, char *dst, int n);
 char	*ft_strjoin(char *s1, char *s2);
-void update_statik(char *statik, int k);
-char *send_line(char *statik, int k);
+char 	*update_buffer(char *buffer, char *buff, int k);
+char	*trim_buffer(char *buff, int i);
+int		check_for_line_break(char *buffer);
+char	*ft_strjoin_modified(char *buffer, char *buff, int k);
 
 #endif
