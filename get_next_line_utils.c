@@ -39,6 +39,7 @@ char	*ft_strjoin(char *s1, char *s2)
 			i++;
 		}
 		str[i] = '\0';
+//		free(s1);
 		return (str);
 	}
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
@@ -50,7 +51,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		str[i++] = s2[j++];
 	str[i] = '\0';
-	free(s1);
+//	free(s1);
 	return (str);
 }
 
@@ -61,11 +62,11 @@ int	check_for_line_break(char *buffer)
 	i = 0;
 	while (buffer && buffer[i])
 	{
-		if (buffer[i] == '\n')
-			return (i + 1);
+		if (buffer[i] == '\n' || buffer[i] == '\0')
+			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 char	*ft_strjoin_modified(char *buffer, char *buff, int k)
@@ -94,7 +95,7 @@ char	*ft_strdup_line(char *src)
 	int		i;
 
 	i = 0;
-	while (src && src[i] != '\n')
+	while (src && src[i] != '\n' ||)
 		i++;
 	duplicate = malloc(sizeof(char) * i + 1);
 	if (!duplicate)
