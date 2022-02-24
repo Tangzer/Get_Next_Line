@@ -15,7 +15,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*trim_buffer(char *buff);
 int		check_for_line_break(char *buffer);
 char	*ft_strjoin_modified(char *buffer, char *buff, int k);
-char	*ft_strdup_line(char *src);
+char	*ft_strdup_line(char *src, int i);
 void	ft_bzero(void *str, int n);
 
 #endif

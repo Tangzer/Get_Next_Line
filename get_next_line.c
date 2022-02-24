@@ -26,22 +26,25 @@ char *trim_buffer(char *buffer)
 
 char	*gnl(int fd, char *buffer, char *buff)
 {
-	char *str;
+	char	*str;
+	int 	i;
 
 	str = NULL;
-	while (check_for_line_break(buffer) == -1)
+	i = 1;
+	while (check_for_line_break(buffer) == -1 && i != 0)
 	{
 		ft_bzero(buff, BUFFER_SIZE + 1);
-		if (read(fd, buff, BUFFER_SIZE) < BUFFER_SIZE)
+		i = read(fd, buff, BUFFER_SIZE);
+		if (i == -1)
 		{
-			buffer = ft_strjoin(buffer, buff);
-			break ;
+			free(buff);
+			return (NULL);
 		}
 		buffer = ft_strjoin(buffer, buff);
 		if (!buffer)
 			return (ft_error(buffer));
 	}
-	str = ft_strdup_line(buffer);
+	str = ft_strdup_line(buffer, i);
 	printf("buffer avant trim = %s\n", buffer);
 	buffer = trim_buffer(buffer);
 	printf("buffer after trim = %s\n", buffer);
@@ -71,16 +74,16 @@ int main()
 	int fd = open("file", O_RDONLY);
 	str = get_next_line(fd);
 	printf("res1 = %s\n", str);
-
+	free(str);
 	printf("||||||||||||||||||||||||||||||||||||||||||||\n");
 
 	str = get_next_line(fd);
 	printf("res 2 = %s\n", str);
-
+	free(str);
 	printf("||||||||||||||||||||||||||||||||||||||||||||\n");
 
 	str = get_next_line(fd);
 	printf("res 2 = %s\n", str);
-
+	free(str);
 	return (0);
 }

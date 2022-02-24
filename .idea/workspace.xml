@@ -21,7 +21,6 @@
     <list default="true" id="0e024974-08b4-4470-bf25-6058bfdbfc67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.h" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h.gch" afterDir="false" />
@@ -97,7 +96,8 @@
       <workItem from="1645449733808" duration="13151000" />
       <workItem from="1645616317053" duration="428000" />
       <workItem from="1645621993572" duration="1313000" />
-      <workItem from="1645623467075" duration="5585000" />
+      <workItem from="1645623467075" duration="6161000" />
+      <workItem from="1645696668028" duration="2060000" />
     </task>
     <servers />
   </component>

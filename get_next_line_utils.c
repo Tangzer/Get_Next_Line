@@ -30,17 +30,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1)
 	{
-		str = malloc(sizeof(char) * (ft_strlen(s2) + 1));
-		if (!str)
+		s1 = malloc(sizeof(char) * 1);
+		if (!s1)
 			return (NULL);
-		while (s2[i])
-		{
-			str[i] = s2[i];
-			i++;
-		}
-		str[i] = '\0';
-//		free(s1);
-		return (str);
+		s1[0] = '\0';
 	}
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
@@ -51,7 +44,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		str[i++] = s2[j++];
 	str[i] = '\0';
-//	free(s1);
+	free(s1);
 	return (str);
 }
 
@@ -89,24 +82,30 @@ char	*ft_strjoin_modified(char *buffer, char *buff, int k)
 	return (str);
 }
 
-char	*ft_strdup_line(char *src)
+char	*ft_strdup_line(char *src, int x)
 {
 	char	*duplicate;
 	int		i;
+	int 	j;
 
 	i = 0;
-	while (src && src[i] != '\n' ||)
+	j = 0;
+	x = 0;
+	while (src[i] && src[i] != '\n')
+	{
+		i++;
+	}
+	if (src[i] == '\n')
 		i++;
 	duplicate = malloc(sizeof(char) * i + 1);
 	if (!duplicate)
 		return (NULL);
-	i = 0;
-	while (src && src[i] != '\n')
+	while (j < i)
 	{
-		duplicate[i] = src[i];
-		i++;
+		duplicate[j] = src[j];
+		j++;
 	}
-	duplicate[i] = '\0';
+	duplicate[j] = '\0';
 	return (duplicate);
 }
 
