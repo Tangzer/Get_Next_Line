@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tverdood <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/24 12:22:09 by tverdood          #+#    #+#             */
+/*   Updated: 2022/02/24 12:23:55 by tverdood         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "get_next_line.h"
 #include <stdio.h>
-#include <limits.h>
 
-char *trim_buffer(char *buffer)
+char	*trim_buffer(char *buffer)
 {
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 	char	*str;
 
 	i = 0;
@@ -24,20 +34,23 @@ char *trim_buffer(char *buffer)
 	return (str);
 }
 
-char	*gnl(int fd, char *buffer)
+char	*get_nl(int fd, char *buffer)
 {
-	char 	*buff;
-	int 	i;
+	char	*buff;
+	int		i;
 
 	i = 1;
 	buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	buff = ft_bzero(buff, BUFFER_SIZE + 1);
 	while (check_for_line_break(buffer) == -1 && i != 0)
 	{
 		i = read(fd, buff, BUFFER_SIZE);
 		if (i == -1)
+			return (ft_error(buff));
+		if (i == 0)
 		{
-			free(buff);
-			return (NULL);
+			free(buffer);
+			return (ft_error(buff));
 		}
 		buff[i] = '\0';
 		buffer = ft_strjoin(buffer, buff);
@@ -50,41 +63,30 @@ char	*gnl(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	char 	*line;
-	static char 	*buffer;
+	char *line;
+	static char *buffer;
 
 	if (fd < 0 || fd > OPEN_MAX || !fd || BUFFER_SIZE <= 0)
 		return (ft_error(0));
-	buffer = gnl(fd, buffer);
+	buffer = get_nl(fd, buffer);
 	if (!buffer)
 		return (NULL);
 	line = ft_strdup_line(buffer);
 	buffer = trim_buffer(buffer);
+//	printf("--buffer after trim = %s\n", buffer);
 	return (line);
 }
-
-
-//effacer BUFFer sizer
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-int main()
-{
-	char *str;
-
-	int fd = open("file", O_RDONLY);
-	str = get_next_line(fd);
-	printf("res1 = %s", str);
-	free(str);
-	printf("||||||||||||||||||||||||||||||||||||||||||||\n");
-
-	str = get_next_line(fd);
-	printf("res 2 = %s", str);
-	free(str);
-	printf("||||||||||||||||||||||||||||||||||||||||||||\n");
-
-	str = get_next_line(fd);
-	printf("res 2 = %s", str);
-	free(str);
-	return (0);
-}
+//
+//#include <stdio.h>
+//
+//int main()
+//{
+//	char *str;
+//
+//	int fd = open("file", O_RDONLY);
+//	while ((str = get_next_line(fd)) != NULL)
+//	{
+//		printf("res = %s", str);
+//	}
+//	return (0);
+//}

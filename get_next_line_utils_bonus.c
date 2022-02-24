@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tverdood <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 12:25:23 by tverdood          #+#    #+#             */
-/*   Updated: 2022/02/24 12:26:06 by tverdood         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
 
 char	*ft_error(char *tmp)
@@ -46,8 +34,6 @@ char	*ft_strjoin(char *s1, char *s2)
 			return (NULL);
 		s1[0] = '\0';
 	}
-	if (!s2)
-		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
 		return (NULL);
@@ -66,7 +52,7 @@ int	check_for_line_break(char *buffer)
 	int	i;
 
 	i = 0;
-	while (buffer && buffer[i])
+	while (buffer[fd] && buffer[i])
 	{
 		if (buffer[i] == '\n' || buffer[i] == '\0')
 			return (i);
@@ -99,19 +85,4 @@ char	*ft_strdup_line(char *src)
 	}
 	duplicate[j] = '\0';
 	return (duplicate);
-}
-
-char	*ft_bzero(char *s, int n)
-{
-	int		i;
-
-	if (n == 0)
-		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		s[i] = '\0';
-		i++;
-	}
-	return (s);
 }

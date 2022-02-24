@@ -19,12 +19,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e024974-08b4-4470-bf25-6058bfdbfc67" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/get_next_line_bonus.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get_next_line_bonus.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get_next_line_bonus.h.gch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/get_next_line_utils_bonus.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnlTester/get_next_line.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnlTester/get_next_line_utils.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnlTester/gnlTest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnlTester/gnlTest.dSYM/Contents/Info.plist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gnlTester/gnlTest.dSYM/Contents/Resources/DWARF/gnlTest" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file" beforeDir="false" afterPath="$PROJECT_DIR$/file" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.h" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h.gch" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line_utils.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gnlTester" beforeDir="false" afterPath="$PROJECT_DIR$/gnlTester" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +79,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -97,7 +119,9 @@
       <workItem from="1645616317053" duration="428000" />
       <workItem from="1645621993572" duration="1313000" />
       <workItem from="1645623467075" duration="6161000" />
-      <workItem from="1645696668028" duration="2060000" />
+      <workItem from="1645696668028" duration="4320000" />
+      <workItem from="1645708500408" duration="102000" />
+      <workItem from="1645708627027" duration="7350000" />
     </task>
     <servers />
   </component>
@@ -128,10 +152,10 @@
       <screen x="0" y="23" width="2560" height="1337" />
     </state>
     <state x="909" y="444" key="#Notifications/0.23.2560.1337@0.23.2560.1337" timestamp="1643115687102" />
-    <state x="929" y="495" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1644923308224">
+    <state x="929" y="495" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1645712194944">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="929" y="495" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1644923308224" />
+    <state x="929" y="495" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1440@0.0.2560.1440" timestamp="1645712194944" />
     <state x="969" y="318" key="RollbackChangesDialog" timestamp="1645027046366">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
