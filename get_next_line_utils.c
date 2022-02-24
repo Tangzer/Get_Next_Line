@@ -82,7 +82,7 @@ char	*ft_strjoin_modified(char *buffer, char *buff, int k)
 	return (str);
 }
 
-char	*ft_strdup_line(char *src, int x)
+char	*ft_strdup_line(char *src)
 {
 	char	*duplicate;
 	int		i;
@@ -90,7 +90,6 @@ char	*ft_strdup_line(char *src, int x)
 
 	i = 0;
 	j = 0;
-	x = 0;
 	while (src[i] && src[i] != '\n')
 	{
 		i++;
