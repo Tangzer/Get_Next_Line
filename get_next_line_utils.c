@@ -68,7 +68,7 @@ int	check_for_line_break(char *buffer)
 	i = 0;
 	while (buffer && buffer[i])
 	{
-		if (buffer[i] == '\n' || buffer[i] == '\0')
+		if (buffer[i] == '\n' /*|| buffer[i] == '\0'*/)
 			return (i);
 		i++;
 	}

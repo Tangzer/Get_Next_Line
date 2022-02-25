@@ -19,26 +19,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e024974-08b4-4470-bf25-6058bfdbfc67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/get_next_line_bonus.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/get_next_line_bonus.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/get_next_line_bonus.h.gch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/get_next_line_utils_bonus.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gnlTester/get_next_line.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gnlTester/get_next_line_utils.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gnlTester/gnlTest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gnlTester/gnlTest.dSYM/Contents/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gnlTester/gnlTest.dSYM/Contents/Resources/DWARF/gnlTest" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/file" beforeDir="false" afterPath="$PROJECT_DIR$/file" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_next_line" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_next_line.h" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_next_line.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h.gch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_next_line.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_next_line_utils.o" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gnlTester" beforeDir="false" afterPath="$PROJECT_DIR$/gnlTester" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,13 +66,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -121,7 +101,9 @@
       <workItem from="1645623467075" duration="6161000" />
       <workItem from="1645696668028" duration="4320000" />
       <workItem from="1645708500408" duration="102000" />
-      <workItem from="1645708627027" duration="7350000" />
+      <workItem from="1645708627027" duration="7464000" />
+      <workItem from="1645784232787" duration="2652000" />
+      <workItem from="1645786994298" duration="1393000" />
     </task>
     <servers />
   </component>

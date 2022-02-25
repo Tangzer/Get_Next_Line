@@ -19,9 +19,14 @@ char	*trim_buffer(char *buffer)
 	char	*str;
 
 	i = 0;
-	while (buffer[i] != '\n')
+	while (buffer[i] != '\n' && buffer[i])
 		i++;
 	j = ft_strlen(buffer) - i;
+	if (j <= 0)
+	{
+		free(buffer);
+		return  NULL;
+	}
 	str = malloc(sizeof(char) * (j + 1));
 	if (!str)
 		return (NULL);
@@ -41,16 +46,17 @@ char	*get_nl(int fd, char *buffer)
 
 	i = 1;
 	buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	buff = ft_bzero(buff, BUFFER_SIZE + 1);
+
 	while (check_for_line_break(buffer) == -1 && i != 0)
 	{
+		ft_bzero(buff, BUFFER_SIZE + 1);
 		i = read(fd, buff, BUFFER_SIZE);
 		if (i == -1)
 			return (ft_error(buff));
 		if (i == 0)
 		{
-			free(buffer);
-			return (ft_error(buff));
+			ft_error(buff);
+			return (buffer);
 		}
 		buff[i] = '\0';
 		buffer = ft_strjoin(buffer, buff);
@@ -66,7 +72,7 @@ char	*get_next_line(int fd)
 	char *line;
 	static char *buffer;
 
-	if (fd < 0 || fd > OPEN_MAX || !fd || BUFFER_SIZE <= 0)
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
 		return (ft_error(0));
 	buffer = get_nl(fd, buffer);
 	if (!buffer)
@@ -74,19 +80,28 @@ char	*get_next_line(int fd)
 	line = ft_strdup_line(buffer);
 	buffer = trim_buffer(buffer);
 //	printf("--buffer after trim = %s\n", buffer);
+	if (line && !*line)
+	{
+		free(line);
+		return NULL;
+	}
 	return (line);
 }
-//
-//#include <stdio.h>
-//
-//int main()
-//{
-//	char *str;
-//
-//	int fd = open("file", O_RDONLY);
-//	while ((str = get_next_line(fd)) != NULL)
-//	{
-//		printf("res = %s", str);
-//	}
-//	return (0);
-//}
+/*
+#include <stdio.h>
+
+int main()
+{
+	char *str;
+
+	int fd = open("file", O_RDONLY);
+	while ((str = get_next_line(0)) != NULL)
+	{
+		if (!*str)
+			printf("haha\n");
+		printf("res = %s", str);
+		free(str);
+	}
+	str = get_next_line(fd);
+	return (0);
+}*/
