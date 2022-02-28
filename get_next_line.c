@@ -40,10 +40,10 @@ char	*ft_strjoin(char *s1, char *s2)
 			return (NULL);
 	}
 	if (!s2)
-		return (NULL);
+/**/		return (ft_error(s1));
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
-		return (NULL);
+/*il faut free?*/		return (NULL);
 	while (s1[j])
 		str[i++] = s1[j++];
 	j = 0;
@@ -65,13 +65,10 @@ char	*trim_buffer(char *buffer)
 		i++;
 	j = ft_strlen(buffer) - i;
 	if (j <= 0)
-	{
-		free(buffer);
-		return (NULL);
-	}
+/**/		return (ft_error(buffer));
 	str = malloc(sizeof(char) * (j + 1));
 	if (!str)
-		return (NULL);
+/**/		return (ft_error(buffer));
 	i += 1;
 	j = 0;
 	while (buffer[i])
