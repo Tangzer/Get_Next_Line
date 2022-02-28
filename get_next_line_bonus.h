@@ -1,6 +1,17 @@
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFFER_SIZE 4
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tverdood <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/28 14:20:55 by tverdood          #+#    #+#             */
+/*   Updated: 2022/02/28 14:20:58 by tverdood         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -15,5 +26,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*trim_buffer(char *buff);
 int		check_for_line_break(char *buffer);
 char	*ft_strdup_line(char *src);
+char	*ft_bzero(char *s, int n);
+char	*ft_strdup(char *src);
 
 #endif

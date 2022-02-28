@@ -21,12 +21,13 @@
     <list default="true" id="0e024974-08b4-4470-bf25-6058bfdbfc67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.out.dSYM/Contents/Resources/DWARF/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/file" beforeDir="false" afterPath="$PROJECT_DIR$/file" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line.h" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_bonus.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line_bonus.h" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_bonus.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line_bonus.h.gch" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_bonus.h.gch" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_next_line_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gnlTester" beforeDir="false" afterPath="$PROJECT_DIR$/gnlTester" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_next_line_utils_bonus.c" beforeDir="false" afterPath="$PROJECT_DIR$/get_next_line_utils_bonus.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +104,9 @@
       <workItem from="1645708500408" duration="102000" />
       <workItem from="1645708627027" duration="7464000" />
       <workItem from="1645784232787" duration="2652000" />
-      <workItem from="1645786994298" duration="1393000" />
+      <workItem from="1645786994298" duration="1488000" />
+      <workItem from="1646048335207" duration="1637000" />
+      <workItem from="1646053047954" duration="2074000" />
     </task>
     <servers />
   </component>

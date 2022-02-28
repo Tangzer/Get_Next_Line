@@ -27,5 +27,6 @@ char	*trim_buffer(char *buff);
 int		check_for_line_break(char *buffer);
 char	*ft_strdup_line(char *src);
 char	*ft_bzero(char *s, int n);
+char	*ft_strdup(char *src);
 
 #endif

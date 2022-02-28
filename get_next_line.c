@@ -6,11 +6,53 @@
 /*   By: tverdood <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 12:22:09 by tverdood          #+#    #+#             */
-/*   Updated: 2022/02/24 12:23:55 by tverdood         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:19:30 by tverdood         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
-#include <stdio.h>
+
+int	check_for_line_break(char *buffer)
+{
+	int	i;
+
+	i = 0;
+	while (buffer && buffer[i])
+	{
+		if (buffer[i] == '\n')
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	j = 0;
+	if (!s1)
+	{
+		s1 = ft_strdup("");
+		if (!s1)
+			return (NULL);
+	}
+	if (!s2)
+		return (NULL);
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	while (s1[j])
+		str[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	free(s1);
+	return (str);
+}
 
 char	*trim_buffer(char *buffer)
 {
@@ -25,7 +67,7 @@ char	*trim_buffer(char *buffer)
 	if (j <= 0)
 	{
 		free(buffer);
-		return  NULL;
+		return (NULL);
 	}
 	str = malloc(sizeof(char) * (j + 1));
 	if (!str)
@@ -46,7 +88,6 @@ char	*get_nl(int fd, char *buffer)
 
 	i = 1;
 	buff = malloc(sizeof(char) * BUFFER_SIZE + 1);
-
 	while (check_for_line_break(buffer) == -1 && i != 0)
 	{
 		ft_bzero(buff, BUFFER_SIZE + 1);
@@ -69,8 +110,8 @@ char	*get_nl(int fd, char *buffer)
 
 char	*get_next_line(int fd)
 {
-	char *line;
-	static char *buffer;
+	char		*line;
+	static char	*buffer;
 
 	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0)
 		return (ft_error(0));
@@ -79,29 +120,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_strdup_line(buffer);
 	buffer = trim_buffer(buffer);
-//	printf("--buffer after trim = %s\n", buffer);
 	if (line && !*line)
 	{
 		free(line);
-		return NULL;
+		return (NULL);
 	}
 	return (line);
 }
-/*
-#include <stdio.h>
-
-int main()
-{
-	char *str;
-
-	int fd = open("file", O_RDONLY);
-	while ((str = get_next_line(0)) != NULL)
-	{
-		if (!*str)
-			printf("haha\n");
-		printf("res = %s", str);
-		free(str);
-	}
-	str = get_next_line(fd);
-	return (0);
-}*/
